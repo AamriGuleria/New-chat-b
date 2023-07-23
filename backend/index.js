@@ -1,11 +1,12 @@
 import { Configuration, OpenAIApi } from "openai";
 import express from "express";
 import bodyParser from "body-parser";
+import 'dotenv/config'
+const p=process.env.PORT;
 import cors from "cors";
 var api_key="";
 var error="";
 const app=express(); 
-const port=8000;
 app.use(bodyParser.json());
 app.use(cors());
 app.post('/',(req,res)=>{
@@ -68,6 +69,6 @@ app.post("/main",async(req,res)=>{
       }  
 })
 
-app.listen(port,()=>{
-    console.log(`listening on port ${port}`)
+app.listen(p,()=>{
+    console.log(`listening on port`)
 })
